@@ -1,3 +1,6 @@
+weapon1h=Axe_|ceremonialDagger_|Dagger_|fistWeapon_|handXbow_|mightyWeapon_1H_|Mace_|spear_|Sword_|Wand_
+head=voodooMask_|spiritStone_|WizardHat_|Helm_
+
 fweapon=DPS:850 and WeaponAttacksPerSecond:1.20 and Sockets:1 and (leach:2 or loh:100 or CritDamage:40)
 famu=((CritDamage:40 and (CritChance:5 or AtkSpeedBonus:5)) or (CritChance:5 and AtkSpeedBonus:5))
 fring=((CritDamage:25 and (CritChance:3 or AtkSpeedBonus:5)) or (CritChance:3 and AtkSpeedBonus:5))
@@ -10,6 +13,8 @@ fhead=Sockets:1 and (Str:100 or Int:100 or Dex:100)
 fboots=MovSpeed:12 and Resall:40 and (Str:100 or Int:100 or Dex:100)
 unid=(lvlreq:0)
 
+Amulet_[q:6]
+Ring_[q:6]
 weapon1h[q:6](fweapon)
 Gloves_[q:6](fgloves)
 Bracers_[q:6](fbracers)
@@ -19,25 +24,11 @@ chestArmor_[q:6](fchestArmor)
 head[q:6](fhead)
 Boots_[q:6](fboots)
 
-Amulet_[q:6]
-Ring_[q:6]
 
-BlacksmithsTome|Crafting_Training_Tome|Crafting_Training_Page_Smith_Hell|Crafting_Training_Page_Jeweler_Hell
-
+Page_of_Knowledge_flippy|Crafting_Training_Page_Smith|Crafting_Training_Page_Jeweler
 CraftingMaterials_Flippy_Global|Crafting_Tier
 
 GoldSmall|GoldMedium|GoldLarge
 
 HealthPotionLarge|healthPotion_Greater|healthPotion_Heroic|healthPotion_Lesser|healthPotion_Minor|healthPotion_Mythic|healthPotion_Normal|healthPotion_Resplendent|healthPotion_Runic|healthPotion_Super
-
 Emerald_|Ruby_|Topaz_|Amethyst_
-
-
-
-
-
-
-
-
-
-

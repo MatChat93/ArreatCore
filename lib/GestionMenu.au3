@@ -47,20 +47,22 @@ Func SelectGameType($SelectGameType, $auto)
 	If $TypedeBot <> 2 Then
 		;Selection -> CHANGER DE QUETE
 		Sleep(Random(300, 400, 1))
-		RandomMouseClick(106, 270)
-		Sleep(Random(300, 400, 1))
-
+		RandomMouseClick(125, 320) ; tap paramètre de la partie
+		Sleep(Random(700, 800, 1)) 
+		
 		;Selection de la difficulte et de la puissance des monstres
 		If ($Totalruns = 1) And ($TypedeBot = 1) Then
 			SelectDifficultyMonsterPower()
 		EndIf
+		
+		RandomMouseClick(395, 371) ; tap changer
+		Sleep(Random(700, 800, 1))
 
 		;Selection de la quête
 
 		;Initialisation de la quete 1.2 preparation de l'arborescense des quêtes comparaison au choix des portails en reduisant l'arbo
-		$xSelectGameType = Random(100, 200)
-		;$ySelectGameType=170
-		$ySelectGameType = Random(169, 171)
+		$xSelectGameType = Random(320, 420)
+		$ySelectGameType = Random(205, 207)
 
 		;Selection d'une quête au hasard
 		MouseMove($xSelectGameType, $ySelectGameType + 80, Random(12, 14, 1))
@@ -129,7 +131,7 @@ Func SelectGameType($SelectGameType, $auto)
 
 				$posSelectGameType = MouseGetPos()
 				$xSelectGameType = $posSelectGameType[0]
-				$ySelectGameType = $posSelectGameType[1] + 95
+				$ySelectGameType = $posSelectGameType[1] + 37
 
 				MouseMove($xSelectGameType, $ySelectGameType, 15)
 				MouseClick("left")
@@ -160,7 +162,7 @@ Func SelectGameType($SelectGameType, $auto)
 				Next
 				$posSelectGameType = MouseGetPos()
 				$xSelectGameType = $posSelectGameType[0]
-				$ySelectGameType = $posSelectGameType[1] + 73
+				$ySelectGameType = $posSelectGameType[1] + 7
 				MouseMove($xSelectGameType, $ySelectGameType, 15)
 				MouseClick("left")
 				Sleep(Random(600, 800, 1))
@@ -176,7 +178,7 @@ Func SelectGameType($SelectGameType, $auto)
 
 				$posSelectGameType = MouseGetPos()
 				$xSelectGameType = $posSelectGameType[0]
-				$ySelectGameType = $posSelectGameType[1] + 95
+				$ySelectGameType = $posSelectGameType[1] + 37
 
 				MouseMove($xSelectGameType, $ySelectGameType, 15)
 				MouseClick("left")
@@ -188,14 +190,19 @@ Func SelectGameType($SelectGameType, $auto)
 
 		;Bp choisir la quete
 		Sleep(Random(300, 400, 1))
-		RandomMouseClick(500, 475)
+		RandomMouseClick(336, 430)
 		Sleep(Random(300, 400, 1))
+		
 		; Bp validation de la quête
-		If IsQuestChangeUiOpened() Then
+		If IsQuestChangeUiOpened() Then ; note a vérifier pour la fenètre
 			_log("Détection de changement quête")
 			Sleep(Random(300, 400, 1))
-			RandomMouseClick(350, 350)
+			RandomMouseClick(336, 349)
 		EndIf
+		
+		Sleep(Random(600, 800, 1))
+		RandomMouseClick(293, 482) ; tap sauvegarder et fermer
+		Sleep(Random(600, 800, 1))
 	EndIf
 EndFunc   ;==>SelectGameType
 
@@ -414,88 +421,60 @@ EndFunc   ;==>SelectHero
 
 Func SelectDifficultyMonsterPower()
 
-	;Selection de la fleche du menu déroulant de la difficulté
-
-	MouseMove(Random(183, 186), Random(474, 476), Random(12, 14, 1))
+	;Selection de la difficulté
+	MouseMove(Random(590, 620), Random(245, 247), Random(12, 14, 1)) ; tap changer difficulté
 	MouseClick("left")
 	Sleep(Random(600, 800, 1))
 
 	Switch $difficulte
 		Case 1 ;Normal
-			MouseMove(Random(90, 110, 1), Random(495, 500, 1), Random(12, 14, 1))
-		Case 2 ;Cauchemar
-			MouseMove(Random(90, 110, 1), Random(516, 519, 1), Random(12, 14, 1))
-		Case 3 ;Enfer
-			MouseMove(Random(90, 110, 1), Random(535, 538, 1), Random(12, 14, 1))
-		Case 4 ;Arma
-			MouseMove(Random(90, 110, 1), Random(551, 555, 1), Random(12, 14, 1))
+			MouseMove(Random(250, 300, 1), Random(170, 400, 1), Random(12, 14, 1))
+		Case 2 ;Difficile
+			MouseMove(Random(350, 400, 1), Random(170, 400, 1), Random(12, 14, 1))
+		Case 3 ;Expert
+			MouseMove(Random(450, 500, 1), Random(170, 400, 1), Random(12, 14, 1))
+		Case 4 ;Calvaire
+			MouseMove(Random(550, 600, 1), Random(170, 400, 1), Random(12, 14, 1))
+		Case 5 ;Tourment
+			MouseMove(Random(650, 700, 1), Random(170, 400, 1), Random(12, 14, 1))	
 	EndSwitch
 	Sleep(Random(600, 800, 1))
 	MouseClick("left")
 	Sleep(Random(600, 800, 1))
 
 
-	;Selection de la fleche du menu déroulant de la Puissance des monstres
-	MouseMove(Random(309, 311, 1), Random(473, 475, 1), Random(12, 14, 1))
-	Sleep(Random(600, 800, 1))
-	MouseClick("left")
-	Sleep(Random(600, 800, 1))
-
-	; Initialisation de la liste déroulante de la PM
-	MouseMove(Random(220, 280, 1), Random(497, 499, 1), Random(12, 14, 1))
-	For $i = 1 To Random(4, 6, 1) Step 1
-		MouseWheel("up")
-		;Valeur de test ok 100
-		Sleep(Random(100, 150, 1))
-	Next
-
-	#cs
-		Selection de la puissance des monstres
-		Selection de la puissance des monstres comprise entre 5 et 9
-		Selection de la puissance des monstres = 10
-	#ce
-
-	If ($PuisMonstre > 4) And ($PuisMonstre < 10) Then
-		For $i = 1 To 3 Step 1
-			MouseWheel("down")
-			;Valeur de test ok 100
-			Sleep(Random(100, 150, 1))
-		Next
+	;Selection de la barre du menu des difficulté de Tourment et son Initialisation
+	If $difficulte = 5 Then
+	   MouseMove(Random(70, 72, 1), Random(480, 485, 1), Random(20, 22, 1))
+	   Sleep(Random(600, 800, 1))
+	   MouseDown("left")
+	   Sleep(Random(600, 800, 1))
+	   MouseUp("left")
+	   
+	   Sleep(Random(600, 800, 1))
+	   MouseDown("left")
+	   
+	   Switch $PuisMonstre
+			Case 1
+			   MouseMove(Random(70, 72, 1), Random(480, 485, 1), Random(20, 22, 1))
+			Case 2
+			   MouseMove(Random(98, 100, 1), Random(480, 485, 1), Random(20, 22, 1))
+			Case 3
+			   MouseMove(Random(124, 126, 1), Random(480, 485, 1), Random(20, 22, 1))
+			Case 4
+			   MouseMove(Random(148, 150, 1), Random(480, 485, 1), Random(20, 22, 1))
+			Case 5
+			   MouseMove(Random(174, 176, 1), Random(480, 485, 1), Random(20, 22, 1))
+			Case 6
+			   MouseMove(Random(202, 204, 1), Random(480, 485, 1), Random(20, 22, 1))
+	   EndSwitch
+	
+	   MouseUp("left")
+	   Sleep(Random(600, 800, 1))
 	EndIf
-
-	If ($PuisMonstre = 10) Then
-		For $i = 1 To 4 Step 1
-			MouseWheel("down")
-			;Valeur de test ok 100
-			Sleep(Random(100, 150, 1))
-		Next
-	EndIf
-
-	Switch $PuisMonstre
-		Case 0
-			MouseMove(Random(230, 240, 1), Random(497, 499, 1), Random(12, 14, 1))
-		Case 1
-			MouseMove(Random(220, 280, 1), Random(518, 520, 1), Random(12, 14, 1))
-		Case 2
-			MouseMove(Random(220, 280, 1), Random(536, 538, 1), Random(12, 14, 1))
-		Case 3
-			MouseMove(Random(220, 280, 1), Random(556, 558, 1), Random(12, 14, 1))
-		Case 4
-			MouseMove(Random(220, 280, 1), Random(573, 574, 1), Random(12, 14, 1))
-		Case 5
-			MouseMove(Random(220, 280, 1), Random(497, 499, 1), Random(12, 14, 1))
-		Case 6
-			MouseMove(Random(220, 280, 1), Random(518, 520, 1), Random(12, 14, 1))
-		Case 7
-			MouseMove(Random(220, 280, 1), Random(538, 539, 1), Random(12, 14, 1))
-		Case 8
-			MouseMove(Random(220, 280, 1), Random(556, 558, 1), Random(12, 14, 1))
-		Case 9
-			MouseMove(Random(220, 280, 1), Random(573, 574, 1), Random(12, 14, 1))
-		Case 10
-			MouseMove(Random(220, 280, 1), Random(573, 574, 1), Random(12, 14, 1))
-	EndSwitch
-	Sleep(Random(600, 800, 1))
+	
+	MouseMove(Random(350, 450), Random(475, 485), Random(20, 22, 1)) ; tap Ok difficulté
 	MouseClick("left")
-	Sleep(Random(600, 800, 1))
+	Sleep(Random(900, 1000, 1))
+	
 EndFunc   ;==>SelectDifficultyMonsterPower

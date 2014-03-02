@@ -372,21 +372,22 @@ Func LoadConfigs($profilFile = "settings/settings.ini", $creation = 0)
 			$grabListFile = IniRead($profilFile, "Run info", "grablistNormal", $grabListFile)
 
 		Case 2
-			$grabListFile = IniRead($profilFile, "Run info", "grablistCauchemar", $grabListFile)
+			$grabListFile = IniRead($profilFile, "Run info", "grablistDifficile", $grabListFile)
 
 		Case 3
-			$grabListFile = IniRead($profilFile, "Run info", "grablistEnfer", $grabListFile)
-
+			$grabListFile = IniRead($profilFile, "Run info", "grablistExpert", $grabListFile)
+		
 		Case 4
+			$grabListFile = IniRead($profilFile, "Run info", "grablistCalvaire", $grabListFile)	
+		
+		Case 5
 			Switch $TypeDeGrabList
 				Case 1
-					$grabListFile = IniRead($profilFile, "Run info", "grabListArma", $grabListFile)
+					$grabListFile = IniRead($profilFile, "Run info", "grabListTourment", $grabListFile)
 				Case 2
-					$grabListFile = IniRead($profilFile, "Run info", "grabListArmaXP", $grabListFile)
+					$grabListFile = IniRead($profilFile, "Run info", "grabListTourmentXP", $grabListFile)
 				Case 3
-					$grabListFile = IniRead($profilFile, "Run info", "grabListArmaUnid", $grabListFile)
-				Case 4
-					$grabListFile = IniRead($profilFile, "Run info", "grabListArmaRecycle", $grabListFile)
+					$grabListFile = IniRead($profilFile, "Run info", "grabListTourmentRecycle", $grabListFile)
 			EndSwitch
 	EndSwitch
 

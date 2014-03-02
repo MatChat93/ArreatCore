@@ -35,5 +35,3 @@ GoldSmall|GoldMedium|GoldLarge
 CraftingMaterials_Flippy_Global|Crafting_Demonic_Reagent
 Key|key
 Lore_Book_Flippy|Tome|CraftingPlan_Smith_Drop|CraftingPlan_Jeweler_Drop|Crafting_Tier
-
-
